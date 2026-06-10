@@ -1,0 +1,306 @@
+/* ===== VARIÁVEIS E TEMAS ===== */
+:root {
+  --color-primary: #570505;
+  --color-secondary: #3a07b0;
+  --color-text-light: #1f2937;
+  --color-bg-light: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-border: #e5e7eb;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== APP CONTAINER ===== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+.app.dark {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}
+
+/* ===== HEADER ===== */
+.header {
+  padding: var(--spacing-xl);
+  text-align: center;
+  border-bottom: 2px solid var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.header.dark {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.titulo-profissional {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.95;
+}
+
+.header p {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===== BOTÃO TOGGLE TEMA ===== */
+.btn-toggle-theme {
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.app.dark .btn-toggle-theme {
+  background-color: #fbbf24;
+  color: #1f2937;
+}
+
+.btn-toggle-theme:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-toggle-theme:active {
+  transform: scale(0.95);
+}
+
+/* ===== MAIN SECTIONS ===== */
+.secoes {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: var(--spacing-xl);
+}
+
+.secoes.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+.secoes.dark {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}
+
+.secao {
+  margin-bottom: var(--spacing-xl);
+}
+
+.secao h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: var(--spacing-md);
+}
+
+.app.dark .secao h2 {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
+}
+
+/* ===== CARDS CONTAINER ===== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* ===== CARD COMPONENT ===== */
+.card {
+  padding: var(--spacing-lg);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--color-primary);
+}
+
+.card.light {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-light);
+}
+
+.card.dark {
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.app.dark .card h3 {
+  color: #60a5fa;
+}
+
+.card .empresa {
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+.card .data {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: var(--spacing-md);
+}
+
+.card .descricao {
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Estilo especial para cards de habilidades */
+.card.habilidade {
+  text-align: center;
+  border-left-width: 0;
+  border-bottom: 5px solid var(--color-primary);
+}
+
+.app.dark .card.habilidade {
+  border-bottom-color: #60a5fa;
+}
+
+/* ===== RODAPE ===== */
+.rodape {
+  margin-top: auto;
+  padding: var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  border-top: 2px solid var(--color-secondary);
+}
+
+.app.dark .rodape {
+  background-color: #1e3a8a;
+}
+
+.rodape-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rodape p {
+  margin-bottom: var(--spacing-md);
+}
+
+.sociais {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .titulo-profissional {
+    font-size: 1rem;
+  }
+
+  .secoes {
+    padding: var(--spacing-lg);
+  }
+
+  .secao h2 {
+    font-size: 1.5rem;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-toggle-theme {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  .sociais {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--spacing-lg);
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-toggle-theme {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.8rem;
+  }
+
+  .secao h2 {
+    font-size: 1.25rem;
+  }
+}
